@@ -1,0 +1,277 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+    background: #1a1a1a;
+    color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background: linear-gradient(45deg, #1a1a1a, #2d2d2d, #1a1a1a);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+    animation: containerAppear 1s ease;
+}
+
+@keyframes containerAppear {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+input {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.shape-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.shape-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.shape-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.shape-btn.selected {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+#generate-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(45deg, #4a90e2, #63b3ed);
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#generate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+#shape-container {
+    min-height: 300px;
+    margin-top: 2rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Shape Animations */
+@keyframes shapeAppear {
+    from {
+        transform: scale(0) rotate(-180deg);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
+.shape {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.5rem;
+    animation: shapeAppear 0.5s ease forwards;
+}
+
+.circle {
+    border-radius: 50%;
+    background: linear-gradient(45deg, #4a90e2, #63b3ed);
+}
+
+.square {
+    background: linear-gradient(45deg, #48bb78, #68d391);
+}
+
+.triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background: linear-gradient(45deg, #ed64a6, #f687b3);
+}
+
+.star {
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    background: linear-gradient(45deg, #ecc94b, #f6e05e);
+}
+
+.hexagon {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background: linear-gradient(45deg, #9f7aea, #b794f4);
+}
+
+
+.ascii-shape {
+    font-family: monospace;
+    font-size: 24px;
+    margin: 2rem;
+    white-space: pre;
+    display: inline-block;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    animation: shapeContainerAppear 0.5s ease forwards;
+}
+
+.shape-line {
+    line-height: 1;
+    min-height: 1em;
+    text-align: center;
+}
+
+.shape-char {
+    display: inline-block;
+    opacity: 0;
+    transform: scale(0) rotate(-180deg);
+    animation: charAppear 0.5s ease forwards;
+    margin: 0 1px;
+}
+
+.shape-char.space {
+    opacity: 0;
+    animation: none;
+    width: 0.6em;
+}
+
+@keyframes charAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(-180deg);
+        color: #4a90e2;
+    }
+    50% {
+        color: #63b3ed;
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+        color: #fff;
+    }
+}
+
+@keyframes shapeContainerAppear {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Shape-specific styles */
+.ascii-shape.triangle {
+    color: #48bb78;
+}
+
+.ascii-shape.square {
+    color: #4a90e2;
+}
+
+.ascii-shape.diamond {
+    color: #ed64a6;
+}
+
+.ascii-shape.heart {
+    color: #f56565;
+}
+
+.ascii-shape.spiral {
+    color: #9f7aea;
+}

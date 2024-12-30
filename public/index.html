@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Art Shape Generator</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="animated-background"></div>
+    
+    <div class="container">
+        <h1>ASCII Art Shape Generator</h1>
+        
+        <div class="input-section">
+            <div class="input-group">
+                <label for="text-input">Enter Character(s):</label>
+                <input type="text" id="text-input" maxlength="5" placeholder="Enter a character (e.g., *, #, @)">
+            </div>
+            
+            <div class="input-group">
+                <label>Select Shape:</label>
+                <div class="shape-buttons">
+                    <button class="shape-btn" data-shape="triangle">
+                        <i class="fas fa-triangle"></i> Triangle
+                    </button>
+                    <button class="shape-btn" data-shape="square">
+                        <i class="fas fa-square"></i> Square
+                    </button>
+                    <button class="shape-btn" data-shape="diamond">
+                        <i class="fas fa-diamond"></i> Diamond
+                    </button>
+                    <button class="shape-btn" data-shape="heart">
+                        <i class="fas fa-heart"></i> Heart
+                    </button>
+                    <button class="shape-btn" data-shape="spiral">
+                        <i class="fas fa-circle-notch"></i> Spiral
+                    </button>
+                </div>
+            </div>
+            
+            <button id="generate-btn">Generate Shape</button>
+        </div>
+        
+        <div id="shape-container"></div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
