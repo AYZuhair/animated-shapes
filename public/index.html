@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASCII Art Shape Generator</title>
+    <title>Interactive ASCII Art Generator</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -11,39 +11,100 @@
     <div class="animated-background"></div>
     
     <div class="container">
-        <h1>ASCII Art Shape Generator</h1>
+        <h1>Interactive ASCII Art Generator</h1>
         
-        <div class="input-section">
-            <div class="input-group">
-                <label for="text-input">Enter Character(s):</label>
+        <div class="controls-container">
+            <div class="control-group">
+                <label for="text-input">Character(s):</label>
                 <input type="text" id="text-input" maxlength="5" placeholder="Enter a character (e.g., *, #, @)">
             </div>
             
-            <div class="input-group">
-                <label>Select Shape:</label>
-                <div class="shape-buttons">
-                    <button class="shape-btn" data-shape="triangle">
-                        <i class="fas fa-triangle"></i> Triangle
-                    </button>
-                    <button class="shape-btn" data-shape="square">
-                        <i class="fas fa-square"></i> Square
-                    </button>
-                    <button class="shape-btn" data-shape="diamond">
-                        <i class="fas fa-diamond"></i> Diamond
-                    </button>
-                    <button class="shape-btn" data-shape="heart">
-                        <i class="fas fa-heart"></i> Heart
-                    </button>
-                    <button class="shape-btn" data-shape="spiral">
-                        <i class="fas fa-circle-notch"></i> Spiral
-                    </button>
+            <div class="control-group">
+                <label>Shape Size:</label>
+                <div class="slider-container">
+                    <input type="range" id="size-slider" min="3" max="8" value="5">
+                    <span id="size-value">5</span>
                 </div>
             </div>
-            
-            <button id="generate-btn">Generate Shape</button>
+
+            <div class="control-group">
+                <label>Animation Speed:</label>
+                <div class="slider-container">
+                    <input type="range" id="speed-slider" min="0.5" max="2" step="0.1" value="1">
+                    <span id="speed-value">1x</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label>Color:</label>
+                <input type="color" id="color-picker" value="#ffffff">
+            </div>
+
+            <div class="control-group">
+                <div class="toggle-container">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="rainbow-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <label for="rainbow-toggle">Rainbow Mode</label>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="toggle-container">
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="rotation-toggle">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <label for="rotation-toggle">Auto Rotate</label>
+                </div>
+            </div>
         </div>
+
+        <div class="shape-buttons">
+            <button class="shape-btn" data-shape="triangle">
+                <i class="fas fa-triangle"></i> Triangle
+            </button>
+            <button class="shape-btn" data-shape="pyramid">
+                <i class="fas fa-mountain"></i> Pyramid
+            </button>
+            <button class="shape-btn" data-shape="diamond">
+                <i class="fas fa-diamond"></i> Diamond
+            </button>
+            <button class="shape-btn" data-shape="star">
+                <i class="fas fa-star"></i> Star
+            </button>
+            <button class="shape-btn" data-shape="heart">
+                <i class="fas fa-heart"></i> Heart
+            </button>
+            <button class="shape-btn" data-shape="butterfly">
+                <i class="fas fa-fish"></i> Butterfly
+            </button>
+            <button class="shape-btn" data-shape="spiral">
+                <i class="fas fa-circle-notch"></i> Spiral
+            </button>
+            <button class="shape-btn" data-shape="infinity">
+                <i class="fas fa-infinity"></i> Infinity
+            </button>
+            <button class="shape-btn" data-shape="crown">
+                <i class="fas fa-crown"></i> Crown
+            </button>
+            <button class="shape-btn" data-shape="cat">
+                <i class="fas fa-cat"></i> Cat
+            </button>
+        </div>
+            
+        <button id="generate-btn">Generate Shape</button>
         
         <div id="shape-container"></div>
+    </div>
+
+    <div class="shortcut-hint">
+        <h3>Keyboard Shortcuts</h3>
+        <p>Enter: Generate Shape</p>
+        <p>Delete/Backspace: Remove Last Shape</p>
+        <p>Double-click: Remove Shape</p>
+        <p>Drag: Move Shape</p>
     </div>
 
     <script src="js/main.js"></script>
